@@ -10,43 +10,44 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Add" enctype="multipart/form-data" method="post">
+        <form asp-action="Update" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <img id="blah" />
+                <img id="blah" src="~/img/@Model.PhotoPath" />
                 <br />
-                <input asp-for="PhotoPath" id="imgInp" class="form-control" type="file" />
-                <span asp-validation-for="PhotoPath" class="text-danger"></span>
+                <label asp-for="@Model.Photo" class="control-label"></label>
+                <input asp-for="@Model.Photo" id="imgInp" class="form-control" type="file" />
+                <span asp-validation-for="@Model.Photo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AR" class="control-label"></label>
-                <input asp-for="AR" class="form-control" />
-                <span asp-validation-for="AR" class="text-danger"></span>
+                <label asp-for="@Model.AR" class="control-label"></label>
+                <input asp-for="@Model.AR" class="form-control" />
+                <span asp-validation-for="@Model.AR" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Server" class="control-label"></label>
-                <input asp-for="Server" class="form-control" />
-                <span asp-validation-for="Server" class="text-danger"></span>
+                <label asp-for="@Model.Server" class="control-label"></label>
+                <input asp-for="@Model.Server" class="form-control" />
+                <span asp-validation-for="@Model.Server" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Champ" class="control-label"></label>
-                <input asp-for="Champ" class="form-control" />
-                <span asp-validation-for="Champ" class="text-danger"></span>
+                <label asp-for="@Model.Champ" class="control-label"></label>
+                <input asp-for="@Model.Champ" class="form-control" />
+                <span asp-validation-for="@Model.Champ" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Desccription" class="control-label"></label>
-                <input asp-for="Desccription" class="form-control" />
-                <span asp-validation-for="Desccription" class="text-danger"></span>
+                <label asp-for="@Model.Desccription" class="control-label"></label>
+                <input asp-for="@Model.Desccription" class="form-control" />
+                <span asp-validation-for="@Model.Desccription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <label asp-for="@Model.Price" class="control-label"></label>
+                <input asp-for="@Model.Price" class="form-control" />
+                <span asp-validation-for="@Model.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
+                <label asp-for="@Model.Category" class="control-label"></label>
+                <input asp-for="@Model.Category" class="form-control" />
+                <span asp-validation-for="@Model.Category" class="text-danger"></span>
             </div>
 
             <div class="form-group">

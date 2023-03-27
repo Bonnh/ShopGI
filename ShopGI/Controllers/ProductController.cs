@@ -56,31 +56,32 @@ namespace ShopGI.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
+            UpdateViewModel updateViewModel = new UpdateViewModel();
             Product product = productRep.GetProduct(id);
-            UpdateViewModel updateViewModel = new UpdateViewModel()
-            {
-                AR = product.AR,
-                Server = product.Server,
-                Champ = product.Champ,
-                Desccription = product.Desccription,
-                Category = product.Category,
-                Price = product.Price,
-                PhotoPath = product.PhotoPath,
-                ID = id
-            };
+
+            updateViewModel.AR = product.AR;
+            updateViewModel.Server = product.Server;
+            updateViewModel.Champ = product.Champ;
+            updateViewModel.Desccription = product.Desccription;
+            updateViewModel.Category = product.Category;
+            updateViewModel.Price = product.Price;
+            updateViewModel.Photo = null;
+            updateViewModel.ID = id;
+            updateViewModel.PhotoPath = product.PhotoPath;
+            
             
             return View(updateViewModel);
         }
         [HttpPost]
         public IActionResult Update(UpdateViewModel updateViewModel) 
         {
-            //string filename = null;
-            //string path = Path.Combine(environment.WebRootPath, "img");
-            //filename = updateViewModel.Photo.FileName;
-            //string filepath = Path.Combine(path, filename);
+            string filename = null;
+            string path = Path.Combine(environment.WebRootPath, "img");
+            filename = updateViewModel.Photo.FileName;
+            string filepath = Path.Combine(path, filename);
 
             Product product = new Product();
-            product.PhotoPath = "";
+            product.PhotoPath = filename;
             product.ID = updateViewModel.ID;
             product.AR = updateViewModel.AR;
             product.Server = updateViewModel.Server;
@@ -90,11 +91,11 @@ namespace ShopGI.Controllers
             product.Price = updateViewModel.Price;
             
 
-            //updateViewModel.Photo.CopyTo(new FileStream(filepath, FileMode.Create));
+            updateViewModel.Photo.CopyTo(new FileStream(filepath, FileMode.Create));
 
             productRep.Update(product);
 
-            return View("List", productRep.GetAllProduct());
+            return View("List",new ProductLVModel { Product = productRep.GetAllProduct() , CurrentCategory = null});
         }
         public IActionResult List(string category)
         {

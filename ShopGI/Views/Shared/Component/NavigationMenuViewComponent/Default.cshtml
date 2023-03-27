@@ -1,0 +1,6 @@
+﻿@model IEnumerable<string>
+
+@foreach (string c in Model)
+{
+    <a asp-route-category="@c" asp-action="List" style="width: 100%" class="cat btn btn-outline-primary col">@c</a>
+}

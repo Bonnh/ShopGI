@@ -1,0 +1,66 @@
+﻿@model ShopGI.Models.UpdateViewModel
+
+@{
+    ViewData["Title"] = "ShopGI | Update";
+}
+
+<h1>Update</h1>
+
+<h4>Update</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <img id="blah" />
+                <br />
+                <input asp-for="PhotoPath" id="imgInp" class="form-control" type="file" />
+                <span asp-validation-for="PhotoPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AR" class="control-label"></label>
+                <input asp-for="AR" class="form-control" />
+                <span asp-validation-for="AR" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Server" class="control-label"></label>
+                <input asp-for="Server" class="form-control" />
+                <span asp-validation-for="Server" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Champ" class="control-label"></label>
+                <input asp-for="Champ" class="form-control" />
+                <span asp-validation-for="Champ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desccription" class="control-label"></label>
+                <input asp-for="Desccription" class="form-control" />
+                <span asp-validation-for="Desccription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" asp-action="Update" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    imgInp.onchange = evt => {
+        const [file] = imgInp.files
+        if (file) {
+            blah.src = URL.createObjectURL(file)
+        }
+    }
+</script>

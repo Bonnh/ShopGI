@@ -74,13 +74,13 @@ namespace ShopGI.Controllers
         [HttpPost]
         public IActionResult Update(UpdateViewModel updateViewModel) 
         {
-            string filename = null;
-            string path = Path.Combine(environment.WebRootPath, "img");
-            filename = updateViewModel.Photo.FileName;
-            string filepath = Path.Combine(path, filename);
+            //string filename = null;
+            //string path = Path.Combine(environment.WebRootPath, "img");
+            //filename = updateViewModel.Photo.FileName;
+            //string filepath = Path.Combine(path, filename);
 
             Product product = new Product();
-            product.PhotoPath = filename;
+            product.PhotoPath = "";
             product.ID = updateViewModel.ID;
             product.AR = updateViewModel.AR;
             product.Server = updateViewModel.Server;
@@ -90,11 +90,11 @@ namespace ShopGI.Controllers
             product.Price = updateViewModel.Price;
             
 
-            updateViewModel.Photo.CopyTo(new FileStream(filepath, FileMode.Create));
+            //updateViewModel.Photo.CopyTo(new FileStream(filepath, FileMode.Create));
 
             productRep.Update(product);
 
-            return View("List", updateViewModel);
+            return View("List", productRep.GetAllProduct());
         }
         public IActionResult List(string category)
         {

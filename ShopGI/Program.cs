@@ -1,12 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using ShopGI.Models;
+using ShopGI.SessionExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IProductRep, ProductRep>();
+builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+builder.Services.AddTransient<IProductRep, ProductRep>();
+
+builder.Services.AddControllers(
+    options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
 
 builder.Services.AddDbContext<AppDbContext>(optionsAction =>

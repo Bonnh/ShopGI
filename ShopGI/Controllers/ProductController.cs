@@ -109,6 +109,8 @@ namespace ShopGI.Controllers
         }
         public IActionResult Delete(int id) 
         {
+            Product product = productRep.GetProduct(id);
+
             return RedirectToAction("List", productRep.GetAllProduct());
         }
 

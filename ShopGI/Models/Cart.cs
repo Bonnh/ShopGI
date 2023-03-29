@@ -1,15 +1,15 @@
 ﻿namespace ShopGI.Models
 {
-    public class Cart
+    public class Cart : ICart
     {
-        private List<CardItem> ItemCollection = new List<CardItem>();
-        public virtual IEnumerable<CardItem> Items => ItemCollection;
+        private List<CartItem> ItemCollection = new List<CartItem>();
+        public virtual IEnumerable<CartItem> Items => ItemCollection;
         public virtual void AddItem(Product product, int quantity)
         {
-            CardItem item = ItemCollection.Where(p => p.Product.ID==product.ID).FirstOrDefault();
-            if (item != null)
+            CartItem item = ItemCollection.Where(p => p.Product.ID==product.ID).FirstOrDefault();
+            if (item == null)
             {
-                ItemCollection.Add(new CardItem { Product = product, Quantity = quantity});
+                ItemCollection.Add(new CartItem { Product = product, Quantity = quantity});
             }
             else
             {
@@ -21,9 +21,9 @@
 
         public virtual void Clear() => ItemCollection.Clear();
     }
-    public class CardItem
+    public class CartItem
     {
-        public int CardItemID { get; set; }
+        public int CartItemID { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
     }

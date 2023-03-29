@@ -33,8 +33,10 @@
                                 
                                 <p class="card-text">Mô Tả: @Html.DisplayFor(modelItem => item.Desccription)</p>
 
-                                <a class="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID"><p>@Html.DisplayFor(modelItem => item.Price)</p></a><a class ="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID">Thêm vào giỏ hàng</a>
+                                <a class="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID"><p>@Html.DisplayFor(modelItem => item.Price)</p></a>
+                                <a class="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID">Thêm vào giỏ hàng</a>
                                 <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.ID">Cập nhật</a>
+                                <a class="btn btn-outline-primary" asp-action="Delete" asp-controller="Product" asp-route-id="@item.ID">Xóa</a>
                             </div>
                         </div>
                     </div>

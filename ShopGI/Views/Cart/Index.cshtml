@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using ShopGI.Models.ViewModels;
+@model CartIndexViewModel
+
+<h2>Your Cart</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>AR</th>
+            <th>Server</th>
+            <th>Champ</th>
+            <th>Quantity</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cart.Items)
+        {
+            <tr>
+                <td class="text-left">@item.Product.AR</td>
+                <td class="text-left">@item.Product.Server</td>
+                <td class="text-left">@item.Product.Champ</td>
+                <td class="text-left"><input type="number" value="@item.Quantity" /></td>
+                <td class="text-right">@item.Product.Price.ToString("#,# VND")</td>
+                <td class="text-right">@((item.Product.Price * item.Quantity).ToString("#,# VND"))</td>
+                <td class="text-center">
+                    <a class="btn btn-danger" asp-controller="cart" asp-action="RemoveFromCart" asp-route-id="@item.Product.ID">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">@Model.Cart.ComputeTotalValue().ToString("#,# VND")</td>
+        </tr>
+    </tfoot>
+</table>
+<a asp-controller="Order" asp-action="Checkout" class="btn btn-outline-primary">Check out</a>
+<a asp-controller="Cart" asp-action="Clear" class="btn btn-outline-primary">Clear</a>
+<a style="margin-left: 1rem" asp-controller="Product" asp-action="List" class="btn btn-outline-primary">Back to shop</a>

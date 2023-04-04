@@ -39,6 +39,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Cho phép chức năng Session
+app.UseSession();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

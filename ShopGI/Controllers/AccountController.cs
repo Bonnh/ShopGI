@@ -73,6 +73,12 @@ namespace ShopGI.Controllers
             TempData["Error"] = "Wrong credentials. Please, try again!";
             return View(loginViewModel);
         }
+        public async Task<IActionResult> Logout(LoginViewModel loginViewModel)
+        {
+            _signInManager.SignOutAsync();
+            return View("Login");
+                
+        }
         public IActionResult PersonalInfo()
         {
             return View();

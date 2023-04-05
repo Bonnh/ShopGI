@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ShopGI.Models.ViewModels;
+using System.Security.Claims;
 
 namespace ShopGI.Controllers
 {
@@ -70,6 +72,10 @@ namespace ShopGI.Controllers
 
             TempData["Error"] = "Wrong credentials. Please, try again!";
             return View(loginViewModel);
+        }
+        public IActionResult PersonalInfo()
+        {
+            return View();
         }
     }
 }

@@ -2,10 +2,10 @@
 @if (User.Identity.IsAuthenticated)
 {
     <li class="nav-item">
-        <a class="nav-link text-dark">Xin chào @User.Identity.Name</a>
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="PersonalInfo">Xin chào @User.Identity.Name</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark">Đăng Xuất</a>
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Đăng Xuất</a>
     </li>
 }
 else

@@ -5,10 +5,10 @@ namespace ShopGI.Models.ViewModels
     public class LoginViewModel
     {
         [Display(Name = "Email address")]
-        [Required(ErrorMessage = "Email address is required")]
+        [Required(ErrorMessage = "Email không được để trống")]
         public string EmailAddress { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Bạn chưa nhập mật khẩu")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

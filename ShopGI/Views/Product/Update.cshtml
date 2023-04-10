@@ -49,6 +49,16 @@
                 <input asp-for="@Model.Category" class="form-control" />
                 <span asp-validation-for="@Model.Category" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="@Model.accountname" class="control-label"></label>
+                <input asp-for="@Model.accountname" class="form-control" />
+                <span asp-validation-for="@Model.accountname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.password" class="control-label"></label>
+                <input asp-for="@Model.password" class="form-control" />
+                <span asp-validation-for="@Model.password" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <input type="submit" asp-action="Update" value="Update" class="btn btn-primary" />

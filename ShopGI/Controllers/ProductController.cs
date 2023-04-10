@@ -39,6 +39,8 @@ namespace ShopGI.Controllers
             product.Category = v.Category;
             product.Price = v.Price;
             product.PhotoPath = filename;
+            product.accountname = v.accountname;
+            product.password = v.password;
 
 
             productRep.Add(product);
@@ -68,6 +70,8 @@ namespace ShopGI.Controllers
             updateViewModel.Photo = null;
             updateViewModel.ID = id;
             updateViewModel.PhotoPath = product.PhotoPath;
+            updateViewModel.accountname = product.accountname;
+            updateViewModel.password = product.password;
             
             
             return View(updateViewModel);
@@ -89,6 +93,8 @@ namespace ShopGI.Controllers
             product.Desccription = updateViewModel.Desccription;
             product.Category = updateViewModel.Category;
             product.Price = updateViewModel.Price;
+            product.accountname = updateViewModel.accountname;
+            product.password = updateViewModel.password;
             
 
             updateViewModel.Photo.CopyTo(new FileStream(filepath, FileMode.Create));
@@ -110,6 +116,7 @@ namespace ShopGI.Controllers
         public IActionResult Delete(int id) 
         {
             Product product = productRep.GetProduct(id);
+            productRep.Delete(id);
 
             return RedirectToAction("List", productRep.GetAllProduct());
         }

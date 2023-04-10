@@ -16,5 +16,6 @@ namespace ShopGI.Models.ViewModels
         [Display(Name = "Nhập lại mật khẩu")]
         [Compare("Password", ErrorMessage = "Mật khẩu xác thực không trùng khớp")]
         public string ConfirmPassword { get; set; }
+        public string Coin { get; set; }
     }
 }

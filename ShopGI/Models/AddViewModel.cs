@@ -10,5 +10,7 @@
         public string Category { get; set; }
         public float Price { get; set; }
         public IFormFile PhotoPath { get; set; }
+        public string accountname { get; set; }
+        public string password { get; set; }
     }
 }

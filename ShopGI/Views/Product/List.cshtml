@@ -3,48 +3,52 @@
 @{
     ViewData["Title"] = "Sản Phẩm";
 }
-<h1>Account </h1>
+<body>
+    <div style="margin-top:80px">
+        <p>
+            <a class="btn btn-outline-primary" style=" width: 70px, margin-left: 10px" asp-action="Add">Tạo mới</a>
+        </p>
 
-<p>
-    <a class="btn btn-outline-primary" style=" width: 70px, margin-left: 10px" asp-action="Add">Tạo mới</a>
-</p>
 
+        <div class="container">
+            <div class="row align-content-md-start" style="margin-top: 2rem">
+                <div class="col-1 row-cols-1">
+                    <h6>Danh sách </h6>
+                    @await Component.InvokeAsync("NavigationMenuViewComponent", "VIP")
+                </div>
+                <div class="col">
+                    <div class="row row-cols-3 ">
+                        @foreach (var item in Model.Product)
+                        {
+                            <div class="col">
+                                <div class="card" style="width: 18rem; margin-bottom: 2rem; border-radius: 1rem ">
+                                    <img style="border-top-left-radius: 1rem; border-top-right-radius: 1rem" src="~/img/@item.PhotoPath" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <tr>
+                                            <p>Account @Html.DisplayFor(modelItem => item.Category)</p>
+                                            <p>AR: @Html.DisplayFor(modelItem => item.AR)</p>
+                                            <p>Server: @Html.DisplayFor(modelItem => item.Server)</p>
+                                            <p>Tướng: @Html.DisplayFor(modelItem => item.Champ)</p>
+                                        </tr>
 
-<div class="container">
-    <div class="row align-content-md-start" style="margin-top: 2rem">
-        <div class="col-1 row-cols-1">
-            <h6>Danh sách </h6>
-            @await Component.InvokeAsync("NavigationMenuViewComponent")
-        </div>
-        <div class="col">
-            <div class="row row-cols-3 ">
-                @foreach (var item in Model.Product)    
-                {
-                    <div class="col">
-                        <div class="card" style="width: 18rem; margin-bottom: 2rem; border-radius: 1rem ">
-                            <img style="border-top-left-radius: 1rem; border-top-right-radius: 1rem" src="~/img/@item.PhotoPath" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <tr>
-                                    <p>Account @Html.DisplayFor(modelItem => item.Category)</p>
-                                    <p>AR: @Html.DisplayFor(modelItem => item.AR)</p>
-                                    <p>Server: @Html.DisplayFor(modelItem => item.Server)</p>
-                                    <p>Tướng: @Html.DisplayFor(modelItem => item.Champ)</p>
-                                </tr>
-                                
-                                <p class="card-text">Mô Tả: @Html.DisplayFor(modelItem => item.Desccription)</p>
+                                        <p class="card-text">Mô Tả: @Html.DisplayFor(modelItem => item.Desccription)</p>
 
-                                <a class="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID"><p>@Html.DisplayFor(modelItem => item.Price)</p></a>
-                                <a class="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID">Thêm vào giỏ hàng</a>
-                                <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.ID">Cập nhật</a>
-                                <a class="btn btn-outline-primary" asp-action="Delete" asp-controller="Product" asp-route-id="@item.ID">Xóa</a>
+                                        <a class="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID"><p>@Html.DisplayFor(modelItem => item.Price) VND</p></a>
+                                        <a class="btn btn-outline-primary" asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ID">Thêm vào giỏ hàng</a>
+                                        <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.ID">Cập nhật</a>
+                                        <a class="btn btn-outline-primary" asp-action="Delete" asp-controller="Product" asp-route-id="@item.ID">Xóa</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
-                }
+                </div>
             </div>
         </div>
     </div>
-</div>
+    
+</body>
+
 <script>
 
 </script>

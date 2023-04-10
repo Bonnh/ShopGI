@@ -11,6 +11,8 @@
         public float Price { get; set; }
         public IFormFile Photo { get; set; }
         public string PhotoPath { get; set; }
+        public string accountname { get; set; }
+        public string password { get; set; }
 
     }
 }

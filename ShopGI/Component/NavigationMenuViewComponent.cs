@@ -13,12 +13,16 @@ namespace ShopGI.Component
             _iproductRep = repository;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string Category)
         {
-            return View("~/Views/Shared/Component/NavigationMenuViewComponent/Default.cshtml", _iproductRep.GetAllProduct()
+            // Lấy các Category
+            return View("~/Views/Shared/Component/NavigationMenuViewComponent/Default.cshtml",
+                _iproductRep.GetAllProduct()
                 .Select(x => x.Category)
                 .Distinct()
-                .OrderBy(x => x));
+                .OrderBy(x => x)
+            );
+
         }
 
 

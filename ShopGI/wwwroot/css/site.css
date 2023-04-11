@@ -56,15 +56,13 @@ footer {
 }
 
 body {
-    margin: auto;
+    margin-bottom: 20%;
     display:flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: url(background.png) fixed;
     background-size:cover;
-    margin-bottom:400px;
-    width:100%
 }
 
 header {
@@ -273,7 +271,6 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 400px;
     }
 
         .categories h2 {
@@ -366,7 +363,6 @@ header {
 
         .footer-distributed .footer-left {
             width: 40%;
-            margin-top: -20px;
         }
 
         .footer-distributed h3 {
@@ -406,6 +402,7 @@ header {
         .footer-distributed .footer-center {
             width: 30%;
             margin-right:-90px;
+            
         }
 
             .footer-distributed .footer-center i {
@@ -419,6 +416,7 @@ header {
                 line-height: 42px;
                 margin: 10px 15px;
                 vertical-align: middle;
+
             }
 
                 .footer-distributed .footer-center i.fa-envelope {
@@ -431,7 +429,7 @@ header {
                 color: #ffffff;
                 vertical-align: middle;
                 margin: 0;
-                margin-top:-40px;
+                margin-top:0;
             }
 
                 .footer-distributed .footer-center p span {
@@ -466,7 +464,8 @@ header {
                 color: #ffffff;
                 font-size: 18px;
                 font-weight: bold;
-                margin-bottom: 20px;
+                margin: 20px;
+                margin-left: 0;
             }
 
         .footer-distributed .footer-icons {
@@ -517,8 +516,124 @@ header {
             margin-bottom: 20px;
             text-align: center;
         }
-
-            .footer-distributed .footer-center i {
-                margin-left: 0;
-            }
-    }   
+    }
+/*reponsive-body*/
+@media (max-width: 1200px) {
+    body {
+        display: flex;
+        margin-bottom:30%;
+        text-align: center;
+    }
+}
+@media (max-width: 880px) {
+    body {
+        display: flex;
+        margin-bottom: 100%;
+        text-align: center;
+    }
+}
+@media (max-width: 720px) {
+    body {
+        display: flex;
+        margin-bottom: 110%;
+        text-align: center;
+    }
+}
+@media (max-width: 650px) {
+    body {
+        display: flex;
+        margin-bottom: 120%;
+        text-align: center;
+    }
+}
+@media (max-width: 570px) {
+    body {
+        display: flex;
+        margin-bottom: 130%;
+        text-align: center;
+    }
+}
+@media (max-width: 530px) {
+    body {
+        display: flex;
+        margin-bottom: 140%;
+        text-align: center;
+    }
+}
+@media (max-width: 500px) {
+    body {
+        display: flex;
+        margin-bottom: 150%;
+        text-align: center;
+    }
+}
+@media (max-width: 460px) {
+    body {
+        display: flex;
+        margin-bottom: 160%;
+        text-align: center;
+    }
+}
+@media (max-width: 430px) {
+    body {
+        display: flex;
+        margin-bottom: 170%;
+        text-align: center;
+    }
+}
+@media (max-width: 405px) {
+    body {
+        display: flex;
+        margin-bottom: 180%;
+        text-align: center;
+    }
+}
+@media (max-width: 380px) {
+    body {
+        display: flex;
+        margin-bottom: 190%;
+        text-align: center;
+    }
+}
+@media (max-width: 360px) {
+    body {
+        display: flex;
+        margin-bottom: 200%;
+        text-align: center;
+    }
+}
+@media (max-width: 340px) {
+    body {
+        display: flex;
+        margin-bottom: 220%;
+        text-align: center;
+    }
+}
+@media (max-width: 315px) {
+    body {
+        display: flex;
+        margin-bottom: 250%;
+        text-align: center;
+    }
+}
+@media (max-width: 280px) {
+    body {
+        display: flex;
+        margin-bottom: 300%;
+        text-align: center;
+    }
+}
+@media (max-width: 220px) {
+    body {
+        display: flex;
+        margin-bottom: 350%;
+        text-align: center;
+    }
+}
+@media (max-width: 190px) {
+    body {
+        display: flex;
+        margin-bottom: 450%;
+        text-align: center;
+    }
+}

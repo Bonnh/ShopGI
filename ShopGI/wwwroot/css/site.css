@@ -352,8 +352,7 @@ header {
         width: 100%;
         text-align: left;
         font: bold 16px sans-serif;
-        padding: 50px 50px 60px 50px;
-        margin-top: 80px;
+        padding: 30px 25px 15px 25px;
     }
 
         .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
@@ -365,6 +364,7 @@ header {
 
         .footer-distributed .footer-left {
             width: 30%;
+            margin-top: -20px;
         }
 
         .footer-distributed h3 {
@@ -393,10 +393,10 @@ header {
             }
 
         .footer-distributed .footer-company-name {
+            margin-top:-40px;
             color: #8f9296;
             font-size: 14px;
             font-weight: normal;
-            margin: 0;
         }
 
         /* Footer Center */
@@ -508,7 +508,7 @@ header {
     }
     @media (max-width: 920px) {
         .navigation a {
-            display: block;
+            display:flex;
             width: 100%;
             margin-bottom: 20px;
             text-align: center;

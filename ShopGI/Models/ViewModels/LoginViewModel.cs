@@ -12,5 +12,6 @@ namespace ShopGI.Models.ViewModels
         [Required(ErrorMessage = "Bạn chưa nhập mật khẩu")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

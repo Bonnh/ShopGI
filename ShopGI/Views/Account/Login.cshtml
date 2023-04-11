@@ -56,7 +56,7 @@
                     <label asp-for="Password"></label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Remember me</label>
+                    <label>@Html.CheckBoxFor(loginViewModel=>loginViewModel.RememberMe)Remember me</label>
                     <a href="#">Forgot password</a>
                 </div>
                 <button type="submit" class="btn">Login</button>

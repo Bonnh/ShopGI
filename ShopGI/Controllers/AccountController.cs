@@ -63,6 +63,9 @@ namespace ShopGI.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
                     if (result.Succeeded)
                     {
+                        //if (loginViewModel.RememberMe)
+                        //{
+                        //}
                         return RedirectToAction("Index", "Home");
                     }
                 }

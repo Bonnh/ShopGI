@@ -1,6 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+@model ShopGI.Models.ViewModels.RegisterViewModel
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label class="control-label">Email: @User.Identity.Name</label>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Số dư: @Html.DisplayFor(modelItem => modelItem.Coin)</label>
+            </div>
+        </form>
+    </div>
+</div>

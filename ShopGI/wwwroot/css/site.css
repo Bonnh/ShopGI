@@ -46,6 +46,10 @@ body {
 *::after {
     box-sizing: border-box;
 }
+html {
+    position: relative;
+    min-height: 100%;
+}
 
 body {
     margin: auto;
@@ -143,7 +147,7 @@ header {
         padding: 40px;
     }
 
-.form-box h2 {
+.form-box h1 h2 {
     font-size: 2em;
     color: #9FFCFD;
     text-align: center;
@@ -254,7 +258,7 @@ input{
 
 /*thiet ke category cho trang chu*/
 .categories {
-    margin-top:100px;
+    margin-top:50px;
     width:auto;
     position: relative;
     display: flex;
@@ -279,8 +283,10 @@ input{
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
 .col-3 button:hover{
-    background:#9FFCFD
+    background:#9FFCFD;
+    transition: .5s;
 }
+
 
 .guide__title {
     margin-top: 40px;
@@ -319,4 +325,69 @@ input{
     color: #162938;
     font-weight: 500;
     margin-bottom:10px;
+    transition:.5s;
+}
+
+/*thiet ke footer*/
+.footer {
+    background: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+    .footer h3 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .footer p {
+        color: #8a8a8a;
+    }
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1 {
+    flex-basis: 30%;
+}
+
+.footer-col-2 {
+    flex: 1;
+    text-align: center;
+}
+
+    .footer-col-2 img {
+        width: 180px;
+        margin-bottom: 20px;
+    }
+
+.footer-col-3, .footer-col-4 {
+    flex-basis: 12%;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.app_logo {
+    margin-top: 20px;
+}
+
+    .app_logo img {
+        width: 140px;
+    }
+
+.footer hr {
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px;
+}
+
+.copyright {
+    text-align: center;
 }

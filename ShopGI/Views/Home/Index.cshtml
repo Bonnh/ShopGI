@@ -14,96 +14,154 @@
         
     </body>
 </html>*@
-<div class="categories">
-	<div class="small-container">
-		<h2 class="guide__title" align="center">Danh mục tài khoản</h2>
-		<br>
-		<div class="row">
-			<article class="col-lg-3 col-md-6 col-6">
-				<div class="col-3">
-					<a><img src="~/img/featured1.png"></a>
-					<h3 class="note__title" style="color: rgb(0, 255, 204)">Acc Cao cấp</h3>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
-					<button class="btn-pretty">Khám Phá</button>
-				</div>
-			</article>
-			<article class="col-lg-3 col-md-6 col-6">
-				<div class="col-3">
-					<a><img src="~/img/featured1.png"></a>
-					<h3 class="note__title" align="center" style="color: yellow;">Acc bình dân</h3>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
-					<button class="btn-pretty">Khám Phá</button>
-				</div>
-			</article>
-			<article class="col-lg-3 col-md-6 col-6">
-				<div class="col-3">
-					<a><img src="~/img/featured1.png"></a>
-					<h3 class="note__title" align="center" style="color: rgb(180, 0, 180)">Acc Reroll</h3>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
-					<button class="btn-pretty">Khám Phá</button>
-				</div>
-			</article>
-			
-			<article class="col-lg-3 col-md-6 col-6">
-				<div class="col-3">
-					<a><img src="~/img/featured1.png"></a>
-					<h3 class="note__title" align="center" style="color: rgb(0, 255, 8)">Acc Random</h3>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
-					<button class="btn-pretty">Khám Phá</button>
-				</div>
-			</article>
-			
-		</div>
+<!DOCTYPE html>
+<html>
+	<head>
+		@*<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />*@
+	</head>
+    <body>
+	<h1 class="guide__title" align="center" style="margin-top:90px">
+		Chào mừng đến với Shop Genshin Impact
+	</h1>
+	<div class="categories">
+		<div class="small-container">
+			<h2 class="guide__title" align="center">Danh mục tài khoản</h2>
+			<br>
+			<div class="row">
+				<article class="col-lg-3 col-md-6 col-6">
+					<div class="col-3">
+						<a><img src="~/img/accVip.png" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
+						<h3 class="note__title" style="color: rgb(180, 40, 180)">Tài Khoản Cao cấp</h3>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
+						@if (User.Identity.IsAuthenticated)
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("List","Product")'">Khám Phá</button>
+						}
+						else
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("Login","Account")'">Khám Phá</button>
+						}
+					</div>
+				</article>
+				<article class="col-lg-3 col-md-6 col-6">
+					<div class="col-3">
+						<a><img src="~/img/accLow.png" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
+						<h3 class="note__title" style="color: yellow;">Tài Khoản Bình dân</h3>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
+						@if (User.Identity.IsAuthenticated)
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("List","Product")'">Khám Phá</button>
+						}
+						else
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("Login","Account")'">Khám Phá</button>
+						}
+					</div>
+				</article>
+				<article class="col-lg-3 col-md-6 col-6">
+					<div class="col-3">
+						<a><img src="~/img/accReroll.png" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
+						<h3 class="note__title" style="color: rgb(0, 255, 8)">Tài Khoản Reroll</h3>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
+						@if (User.Identity.IsAuthenticated)
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("List","Product")'">Khám Phá</button>
+						}
+						else
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("Login","Account")'">Khám Phá</button>
+						}
+					</div>
+				</article>
 
-		<h2 class="guide__title" align="center">Nạp Game</h2>
-		<br>
-		<div class="row">
-			<article class="col-lg-3 col-md-6 col-6">
-				<div class="col-3">
-				<a ><img src="~/img/featured1.png"></a>
-					<h3 class="note__title" align="center" style="color: rgb(0, 255, 204)">Nạp Genshin</h3>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đang nạp</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">44</h4>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đã nạp</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
-					<button class="btn-pretty">Nạp Ngay</button>
-				</div>
-			</article>
-		</div>
+				<article class="col-lg-3 col-md-6 col-6">
+					<div class="col-3">
+						<a><img src="~/img/accRandom.png" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
+						<h3 class="note__title" style="color: rgb(0, 255, 204)">Tài Khoản Ngẫu Nhiên</h3>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Số tài khoản</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">4444</h4>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đã bán</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
+						@if (User.Identity.IsAuthenticated)
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("List","Product")'">Khám Phá</button>
+						}
+						else
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("Login","Account")'">Khám Phá</button>
+						}
 
-		<h2 class="guide__title" align="center">Cày Thuê</h2>
-		<br>
-		<div class="row">
-			<article class="col-lg-3 col-md-6 col-6">
-				<div class="col-3">
-					<a ><img src="~/img/featured1.png"></a>
-					<h3 class="note__title" align="center" style="color: rgb(0, 255, 204)">Cày thuê</h3>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đang cày</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">4</h4>
-					<h4 align="center" style="color:rgb(225, 225, 225)">Đã cày</h4>
-					<h4 align="center" style="color:rgb(255, 255, 255)">44</h4>
-					<button class="btn-pretty">Thuê</button>
-				</div>
-			</article>
-		</div>
+					</div>
+				</article>
 
+			</div>
+
+			<h2 class="guide__title" align="center">Nạp Game</h2>
+			<br>
+			<div class="row">
+				<article class="col-lg-3 col-md-6 col-6">
+					<div class="col-3">
+						<a><img src="~/img/napdibanoi.png" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
+						<h3 class="note__title" style="color:aqua">Nạp Genshin</h3>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đang nạp</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">44</h4>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đã nạp</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">444</h4>
+
+						@if (User.Identity.IsAuthenticated)
+						{
+							<button class="btn-pretty">Nạp Ngay</button>
+						}
+						else
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("Login","Account")'">Nạp Ngay</button>
+						}
+
+					</div>
+				</article>
+			</div>
+
+			<h2 class="guide__title" align="center">Cày Thuê</h2>
+			<br>
+			<div class="row">
+				<article class="col-lg-3 col-md-6 col-6">
+					<div class="col-3">
+						<a><img src="~/img/cayThue.png" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
+						<h3 class="note__title" style="color: aqua">Cày thuê</h3>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đang cày</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">4</h4>
+						<h4 align="center" style="color:rgb(225, 225, 225)">Đã cày</h4>
+						<h4 align="center" style="color:rgb(255, 255, 255)">44</h4>
+						@if (User.Identity.IsAuthenticated)
+						{
+							<button class="btn-pretty">Thuê</button>
+						}
+						else
+						{
+							<button class="btn-pretty" onclick="location.href='@Url.Action("Login","Account")'">Thuê</button>
+						}
+
+					</div>
+				</article>
+			</div>
+
+		</div>
 	</div>
-</div>
+    </body>
+</html>
 
 
-<script src="~/javascript/script.js"></script>
+
+@*<script src="~/javascript/script.js"></script>*@
 
 
 

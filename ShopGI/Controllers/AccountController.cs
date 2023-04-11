@@ -27,7 +27,7 @@ namespace ShopGI.Controllers
             {
                 var user = new IdentityUser
                 {
-                    UserName = model.Email,
+                    UserName = model.Usernamee,
                     Email = model.Email
                 };
 
@@ -54,7 +54,7 @@ namespace ShopGI.Controllers
         {
             if (!ModelState.IsValid) return View(loginViewModel);
 
-            var user = await _userManager.FindByEmailAsync(loginViewModel.EmailAddress);
+            var user = await _userManager.FindByNameAsync(loginViewModel.Usernamee);
             if (user != null)
             {
                 var passwordCheck = await _userManager.CheckPasswordAsync(user, loginViewModel.Password);
@@ -76,8 +76,10 @@ namespace ShopGI.Controllers
         public async Task<IActionResult> Logout(LoginViewModel loginViewModel)
         {
             _signInManager.SignOutAsync();
-            return View("Login");
-                
+            return RedirectToAction("Login");
+
+
+
         }
         public IActionResult PersonalInfo()
         {

@@ -64,6 +64,7 @@ body {
     background: url(background.png) fixed;
     background-size:cover;
     margin-bottom:400px;
+    width:100%
 }
 
 header {
@@ -293,6 +294,7 @@ header {
         border-radius: 20px;
         backdrop-filter: blur(5px);
         box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+        margin-bottom:20px;
     }
 
         .col-3 button:hover {
@@ -363,7 +365,7 @@ header {
         /* Footer left */
 
         .footer-distributed .footer-left {
-            width: 30%;
+            width: 40%;
             margin-top: -20px;
         }
 
@@ -402,7 +404,8 @@ header {
         /* Footer Center */
 
         .footer-distributed .footer-center {
-            width: 35%;
+            width: 30%;
+            margin-right:-90px;
         }
 
             .footer-distributed .footer-center i {
@@ -428,6 +431,7 @@ header {
                 color: #ffffff;
                 vertical-align: middle;
                 margin: 0;
+                margin-top:-40px;
             }
 
                 .footer-distributed .footer-center p span {
@@ -495,7 +499,7 @@ header {
     }
 
     @media (max-width: 880px) {
-        .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+        .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right, .footer-company-about p {
             display: block;
             width: 100%;
             margin-bottom: 40px;

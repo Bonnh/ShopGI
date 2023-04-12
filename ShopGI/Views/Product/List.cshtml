@@ -67,11 +67,11 @@
                                         <a><img src="~/img/@item.PhotoPath" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
                                         <a style="color:rgb(225, 225, 225)">AR: @Html.DisplayFor(modelItem => item.AR) - Server: @Html.DisplayFor(modelItem => item.Server) - Tướng: @Html.DisplayFor(modelItem => item.Champ)</a><br>
                                         <a class="text-break" style="color:rgb(225, 225, 225)">Mô Tả: @Html.DisplayFor(modelItem => item.Desccription)</a>
-                                        
-                                        
 
 
-                                    <button class="btn-pretty" onclick="location.href='@Url.Action("AddToCart","Cart")'">Khám Phá</button>
+
+
+                                    <button class="btn-pretty" onclick="location.href='@Url.ActionLink("AddToCart","Cart", new{@id=@item.ID})'">Khám Phá</button>
                                     </div>
                                 </article>
                             }

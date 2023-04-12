@@ -293,11 +293,14 @@ header {
         box-shadow: 0 0 30px rgba(0, 0, 0, .5);
         margin-bottom:20px;
     }
+    .col-3 a{
+        text-decoration:none;
+    }
 
-        .col-3 button:hover {
-            background: #9FFCFD;
-            transition: .5s;
-        }
+.col-3 button:hover {
+    background: #9FFCFD;
+    transition: .5s;
+}
 
 
     .guide__title {
@@ -509,14 +512,35 @@ header {
                 margin-left: 0;
             }
     }
-    @media (max-width: 920px) {
-        .navigation a {
-            display:flex;
-            width: 100%;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+
+/*reponsive header*/
+@media (max-width: 920px) {
+    .navigation a {
+        display:flex;
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
     }
+}
+
+@media (max-width: 920px) {
+    header {
+        display: flex;
+        width: 130%;
+    }
+}
+@media (max-width: 1000px) {
+    header {
+        display: flex;
+        width: 120%;
+    }
+}
+@media (max-width: 700px) {
+    header {
+        display: flex;
+        width: 130%;
+    }
+}
 /*reponsive-body*/
 @media (max-width: 1200px) {
     body {
@@ -542,91 +566,91 @@ header {
 @media (max-width: 650px) {
     body {
         display: flex;
-        margin-bottom: 120%;
+        margin-bottom: 125%;
         text-align: center;
     }
 }
 @media (max-width: 570px) {
     body {
         display: flex;
-        margin-bottom: 130%;
+        margin-bottom: 140%;
         text-align: center;
     }
 }
 @media (max-width: 530px) {
     body {
         display: flex;
-        margin-bottom: 140%;
+        margin-bottom: 155%;
         text-align: center;
     }
 }
 @media (max-width: 500px) {
     body {
         display: flex;
-        margin-bottom: 150%;
+        margin-bottom: 170%;
         text-align: center;
     }
 }
 @media (max-width: 460px) {
     body {
         display: flex;
-        margin-bottom: 160%;
+        margin-bottom: 185%;
         text-align: center;
     }
 }
 @media (max-width: 430px) {
     body {
         display: flex;
-        margin-bottom: 170%;
+        margin-bottom: 200%;
         text-align: center;
     }
 }
 @media (max-width: 405px) {
     body {
         display: flex;
-        margin-bottom: 180%;
+        margin-bottom: 2150%;
         text-align: center;
     }
 }
 @media (max-width: 380px) {
     body {
         display: flex;
-        margin-bottom: 190%;
+        margin-bottom: 230%;
         text-align: center;
     }
 }
 @media (max-width: 360px) {
     body {
         display: flex;
-        margin-bottom: 200%;
+        margin-bottom: 240%;
         text-align: center;
     }
 }
 @media (max-width: 340px) {
     body {
         display: flex;
-        margin-bottom: 220%;
+        margin-bottom: 280%;
         text-align: center;
     }
 }
 @media (max-width: 315px) {
     body {
         display: flex;
-        margin-bottom: 250%;
+        margin-bottom: 300%;
         text-align: center;
     }
 }
 @media (max-width: 280px) {
     body {
         display: flex;
-        margin-bottom: 300%;
+        margin-bottom: 350%;
         text-align: center;
     }
 }
 @media (max-width: 220px) {
     body {
         display: flex;
-        margin-bottom: 350%;
+        margin-bottom: 400%;
         text-align: center;
     }
 }
@@ -636,4 +660,37 @@ header {
         margin-bottom: 450%;
         text-align: center;
     }
+}
+
+/*thanh tim kiem*/
+.search-bar{
+    background: rgba(255,255,255,.2);
+    display:flex;
+    border-radius:10px;
+    padding: 5px 10px;
+}
+    .search-bar input {
+        background: transparent;
+        flex: 1;
+        border: 0;
+        outline: none;
+        font-size:20px;
+        color:aqua;
+        padding: 5px 10px;
+    }
+::placeholder {
+    color: gray;
+}
+.btn-search{
+    background: #9FFCFD;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #162938;
+    font-weight: 500;
+}
+.search-frm {
+    position: sticky;
+    top: 100px;
 }

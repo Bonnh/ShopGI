@@ -71,23 +71,12 @@
                                             <a class="text-break">AR: @Html.DisplayFor(modelItem => item.AR) - Server: @Html.DisplayFor(modelItem => item.Server) - Tướng: @Html.DisplayFor(modelItem => item.Champ)</a><br>
                                             <a class="text-break">Mô Tả: @Html.DisplayFor(modelItem => item.Desccription)</a>
                                             <br>
-                                        
-                                            @*them vao gio hang*@
-                                            
-
-                                            @*chi tiet sp*@
                                         </div>
                                         <div>
                                             <button class="btn-detail2" onclick="location.href='@Url.ActionLink("AddToCart","Cart", new{@id=@item.ID})'">Thêm vào giỏ</button>
                                             <button class="btn-detail" onclick="location.href='@Url.ActionLink("Details","Product", new{@id=@item.ID})'">Khám Phá</button>
-                                        <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.ID">Cập nhật</a>
                                         </div>
-                                        
-
                                     </div>
-                                    
-                                    
-                                
                                 </article>
                             }
                         </div>
@@ -95,7 +84,6 @@
                 </div>
             </div>
         </div>
-
 
     @*<div class="container">
     <div class="row align-content-md-start" style="margin-top: 2rem">
@@ -132,8 +120,6 @@
     </div>
     </div>
     </div>*@
-
-
 </body>
 </html>
 

@@ -10,15 +10,13 @@ namespace ShopGI.Controllers
 {
     public class ProductController : Controller
     {
-        private AppDbContext _appDbContext;
         private readonly UserManager<IdentityUser> _userManager;
 
         public IProductRep productRep { get; set; }
         private IWebHostEnvironment environment { get; set; }
 
-        public ProductController(AppDbContext appDbContext, IProductRep productRep, IWebHostEnvironment environment, UserManager<IdentityUser> userManager)
+        public ProductController(IProductRep productRep, IWebHostEnvironment environment, UserManager<IdentityUser> userManager)
         {
-            this._appDbContext = appDbContext;
             this.productRep = productRep;
             this.environment = environment;
             this._userManager = userManager;
@@ -36,14 +34,14 @@ namespace ShopGI.Controllers
         }
         public async Task <IActionResult> SendEmail(int id)
         {
-            //gửi tài khoản về email
+            //lấy tài khoản mật khẩu đã mua đưa vào biến string
             Product product = productRep.GetProduct(id);
             string account;
             account = product.accountname.ToString().Trim();
             string password;
             password = product.password.ToString().Trim();
 
-            //lấy email để gửi
+            //lấy email của tài khoản ShopGI để gửi thư
             var emailUser = "";
             if (User.Identity.IsAuthenticated)
             {
@@ -51,20 +49,21 @@ namespace ShopGI.Controllers
                 emailUser = await _userManager.GetEmailAsync(user);
             }
 
+            //nội dung thư
             MimeMessage message = new MimeMessage();
             message.From.Add(new MailboxAddress("ShopGI", "lethanhbinh12t5nh2020@gmail.com"));
-            message.To.Add(new MailboxAddress("User", emailUser));
+            message.To.Add(new MailboxAddress(User.Identity.Name.ToString(), emailUser));
             message.Subject = "Tài khoản của bạn";
 
             BodyBuilder body= new BodyBuilder();
             body.TextBody = "Tài Khoản: " + account + "; Mật Khẩu: " + password;
             message.Body = body.ToMessageBody();
             
-
+            //smtp để đăng nhập vào gmail bằng phần mềm thứ 3
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 587, false);
-                client.Authenticate("lethanhbinh12t5nh2020@gmail.com", "pfurakpwollyuzgw");
+                client.Authenticate(/*tài khoản gmail*/"lethanhbinh12t5nh2020@gmail.com", /*mật khẩu smtp*/"pfurakpwollyuzgw");
                 client.Send(message);
 
                 client.Disconnect(true);

@@ -2,7 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ShopGI.Models.ViewModels;
+using System.Net.Mail;
+using MailKit.Net.Smtp;
 using System.Security.Claims;
+using Microsoft.AspNetCore.WebUtilities;
+using System.Text;
 
 namespace ShopGI.Controllers
 {
@@ -37,6 +41,7 @@ namespace ShopGI.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //không cần xác thực email
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }

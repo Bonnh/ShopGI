@@ -18,6 +18,7 @@
             <div class="col-12 col-lg-3" style="margin-top:49px">
                 <article class="search-frm">
                     <div class="col-3 p-4 pb-5" style="text-align:center; padding:5px; padding-bottom:20px; font-weight:700; font-size:20px">
+                    <h3 class="guide__title" align="center" style="margin-top:0">Tìm Kiếm</h3>
                         <a style="color:rgb(225, 225, 225)">Tướng</a>
                         <form action="" class="search-bar">
                             <input type="text" placeholder="VD: Kamisato Ayaka" name="q">
@@ -63,16 +64,30 @@
                             {
 
                                 <article class="col-lg-4 col-md-6 col-6">
-                                    <div class="col-3" style="text-align:center">
-                                        <a><img src="~/img/@item.PhotoPath" style="border-top-left-radius:20px;border-top-right-radius:20px"></a>
-                                        <a style="color:rgb(225, 225, 225)">AR: @Html.DisplayFor(modelItem => item.AR) - Server: @Html.DisplayFor(modelItem => item.Server) - Tướng: @Html.DisplayFor(modelItem => item.Champ)</a><br>
-                                        <a class="text-break" style="color:rgb(225, 225, 225)">Mô Tả: @Html.DisplayFor(modelItem => item.Desccription)</a>
 
+                                    <div class="col-3" style="margin-bottom:20px;">
+                                        <div class="col-product">
+                                            <a><img src="~/img/@item.PhotoPath" class="img-product"></a>
+                                            <a class="text-break">AR: @Html.DisplayFor(modelItem => item.AR) - Server: @Html.DisplayFor(modelItem => item.Server) - Tướng: @Html.DisplayFor(modelItem => item.Champ)</a><br>
+                                            <a class="text-break">Mô Tả: @Html.DisplayFor(modelItem => item.Desccription)</a>
+                                            <br>
+                                        
+                                            @*them vao gio hang*@
+                                            
 
+                                            @*chi tiet sp*@
+                                        </div>
+                                        <div>
+                                            <button class="btn-detail2" onclick="location.href='@Url.ActionLink("AddToCart","Cart", new{@id=@item.ID})'">Thêm vào giỏ</button>
+                                            <button class="btn-detail" onclick="location.href='@Url.ActionLink("Details","Product", new{@id=@item.ID})'">Khám Phá</button>
+                                        <a class="btn btn-outline-primary" asp-action="Update" asp-controller="Product" asp-route-id="@item.ID">Cập nhật</a>
+                                        </div>
+                                        
 
-
-                                    <button class="btn-pretty" onclick="location.href='@Url.ActionLink("AddToCart","Cart", new{@id=@item.ID})'">Khám Phá</button>
                                     </div>
+                                    
+                                    
+                                
                                 </article>
                             }
                         </div>

@@ -15,6 +15,7 @@ namespace ShopGI.Controllers
             this._userManager = userManager;
             this._signInManager = signInManager;
         }
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -25,10 +26,12 @@ namespace ShopGI.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 var user = new IdentityUser
                 {
+                    NormalizedUserName = model.Usernamee,
                     UserName = model.Usernamee,
-                    Email = model.Email
+                    Email = model.Email,
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -68,23 +71,32 @@ namespace ShopGI.Controllers
                         //}
                         return RedirectToAction("Index", "Home");
                     }
+                    else
+                    {
+                        TempData["Error"] = "Wrong credentials. Please, try again!";
+                        return View(loginViewModel);
+                    }
                 }
+                else
+                {
+                    TempData["Error"] = "Wrong credentials. Please, try again!";
+                    return View(loginViewModel);
+                }
+            }
+            else
+            {
                 TempData["Error"] = "Wrong credentials. Please, try again!";
                 return View(loginViewModel);
             }
 
-            TempData["Error"] = "Wrong credentials. Please, try again!";
-            return View(loginViewModel);
+            
         }
         public async Task<IActionResult> Logout(LoginViewModel loginViewModel)
         {
             _signInManager.SignOutAsync();
             return RedirectToAction("Login");
-
-
-
         }
-        public IActionResult PersonalInfo()
+        public IActionResult Manager()
         {
             return View();
         }

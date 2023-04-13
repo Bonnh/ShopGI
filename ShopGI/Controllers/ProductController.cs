@@ -1,26 +1,75 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShopGI.Models;
 using ShopGI.Models.ViewModels;
+using MailKit.Net.Smtp;
+using MimeKit;
 using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace ShopGI.Controllers
 {
     public class ProductController : Controller
     {
+        private AppDbContext _appDbContext;
+        private readonly UserManager<IdentityUser> _userManager;
+
         public IProductRep productRep { get; set; }
         private IWebHostEnvironment environment { get; set; }
-        
-        public ProductController(IProductRep productRep,IWebHostEnvironment webHostEnvironment)
+
+        public ProductController(AppDbContext appDbContext, IProductRep productRep, IWebHostEnvironment environment, UserManager<IdentityUser> userManager)
         {
+            this._appDbContext = appDbContext;
             this.productRep = productRep;
-            this.environment = webHostEnvironment;
+            this.environment = environment;
+            this._userManager = userManager;
         }
-        
+
 
         [HttpGet]
         public IActionResult Add()
         {
             return View();
+        }
+        public IActionResult Details(int id)
+        {
+            return View(productRep.GetProduct(id));
+        }
+        public async Task <IActionResult> SendEmail(int id)
+        {
+            //gửi tài khoản về email
+            Product product = productRep.GetProduct(id);
+            string account;
+            account = product.accountname.ToString().Trim();
+            string password;
+            password = product.password.ToString().Trim();
+
+            //lấy email để gửi
+            var emailUser = "";
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                emailUser = await _userManager.GetEmailAsync(user);
+            }
+
+            MimeMessage message = new MimeMessage();
+            message.From.Add(new MailboxAddress("ShopGI", "lethanhbinh12t5nh2020@gmail.com"));
+            message.To.Add(new MailboxAddress("User", emailUser));
+            message.Subject = "Tài khoản của bạn";
+
+            BodyBuilder body= new BodyBuilder();
+            body.TextBody = "Tài Khoản: " + account + "; Mật Khẩu: " + password;
+            message.Body = body.ToMessageBody();
+            
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("lethanhbinh12t5nh2020@gmail.com", "pfurakpwollyuzgw");
+                client.Send(message);
+
+                client.Disconnect(true);
+            }
+                return View();
         }
         [HttpPost]
         public IActionResult Add(AddViewModel v)

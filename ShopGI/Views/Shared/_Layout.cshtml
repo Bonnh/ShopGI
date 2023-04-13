@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using ShopGI.Models
+
+@inject UserManager<IdentityUser> UserManager
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -28,7 +35,7 @@
             <div>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a asp-controller="Account" asp-action="PersonalInfo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào @User.Identity.Name</a>
+                    <a asp-controller="Account" asp-action="Manager" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào @User.Identity.Name</a>
                     <a asp-controller="Account" asp-action="Logout">Đăng Xuất</a>
                 }
                 else
